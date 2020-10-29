@@ -8,7 +8,7 @@ The Airocity Project used to calculate the AQI - Air Quality Index. Which is hel
 
 ## Getting started:-
 
-* Install the Node.js dependencies via npm: 'npm install'
+* Install the Node.js dependencies via npm: `npm install`
 
 * Start MySql server locally and create a database,with **Database Name**:- user-login and **Table Name**:- user
   As shown in figure below.
