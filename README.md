@@ -56,6 +56,8 @@ The Airocity Project used to calculate the AQI - Air Quality Index. Which is hel
 
 * This contains the concentration and the AQI value of all the recieved data.
 
+![value](https://user-images.githubusercontent.com/47686521/97576575-57d24c00-1a14-11eb-971a-c7395dff65e8.png)
+
 # Overview
 
 * There was an error while Dockerizing the application.
