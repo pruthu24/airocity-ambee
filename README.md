@@ -13,6 +13,8 @@ The Airocity Project used to calculate the AQI - Air Quality Index. Which is hel
 * Start MySql server locally and create a database,with **Database Name**:- user-login and **Table Name**:- user
   As shown in figure below.
   
+  ![sql](https://user-images.githubusercontent.com/47686521/97576350-12158380-1a14-11eb-8456-172ba6457f8d.png)
+  
   
 * now start the server
 `npm start`
