@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style.css"> 
+    <title>Airocity - Quality Index Calculator</title>
+    <link rel="icon" href="/airocity.png" type="image/gif" sizes="16x16">
+</head>
+<body>
+    <header class="header-reg">
+        <div class="logo-box">
+          <a href="/"><img src="/airocity.png" alt="logo" class="logo"></a>
+        </div>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li>
+            <a href="{{#if logoutStyle}}{{logoutStyle}}{{else}}#{{/if}}" class="btn-login">{{#if loginStyle}}{{loginStyle}}{{else}}Login{{/if}}</a>
+          </li>
+        </ul>
+        <div class="popup">
+          <form action="/auth/index" method="POST">
+            <div class="popup-content">
+              <img src="/close.png" alt="close" class="close">
+              <img src="/user.png" alt="user">
+              {{#if message}}
+              <h5 class="alert">{{message}}</h5>
+              {{/if}}
+              <input required type="text" id="email" name="email" placeholder="Username or Email-Id">
+              <input required type="password" id="password" name="password" placeholder="password">
+              <button type="submit" class="btn-log" href="#">Login</button>
+            </div>
+          </form>
+        </div>
+
+        <div  class="registration-form">
+          <form class="contact-form" action="/auth/registration" method="POST"> 
+          <h1>Airocity Registration Form</h1>
+          {{#if message}}
+          <h5 class="alert">{{message}}</h5>
+          {{/if}}
+          <h3>Name</h3> 
+          <input id="name" name="name" placeholder="First and last name" required="true" type="text"> 
+          <h3>Email-Id</h3> 
+          <input id="email-id" name="email" placeholder="example@domain.com" required="true" type="email"> 
+          <h3>Password</h3>
+          <input id="password" name="password" placeholder="Password" required="true" type="password">
+          <h3>Confirm Password</h3>
+          <input id="passwordConfirm" name="passwordConfirm" placeholder="Password" required="true" type="password">  
+          <div btn-reg>
+            <button class="btn-register">Submit</button>           
+          </div>  	 
+          </form>    
+        </div>
+      </header>
+        <script>
+          document.querySelector(".btn-login").addEventListener("click",function(){
+            document.querySelector(".popup").style.display ="flex"
+            })
+            
+          document.querySelector(".close").addEventListener("click",function(){
+            document.querySelector(".popup").style.display ="none"
+            })
+        </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+</body>
+</html>

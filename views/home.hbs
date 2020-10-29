@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script  type="text/javascript" src="../controllers/app.js" ></script>
+  <link rel="stylesheet" type="text/css" href="/style.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airocity - Quality Index Calculator</title>
+  <link rel="icon" href="/airocity.png" type="image/gif" sizes="16x16">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-box">
+      <a href="#"><img src="/airocity.png" alt="logo" class="logo"></a>
+    </div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#">Conatct Us</a></li>
+      <li>
+        <a href="/" class="btn-login">Logout</a>
+      </li>
+    </ul>
+
+    {{! Login modal}}
+
+    <div class="popup">
+      <form action="auth/home" method="POST">
+        <div class="popup-content">
+          <img src="/close.png" alt="close" class="close">
+          <img src="/user.png" alt="user">
+          {{#if message}}
+          <h5 class="alert">{{message}}</h5>
+          {{/if}}
+          <input type="text" id="email" name="email" placeholder="Username or Email-Id">
+          <input type="password" id="password" name="password" placeholder="password">
+          <button type="submit" class="btn-log" href="/">Login</button>
+          <a class="new-user" href="/registration">New User</a>
+        </div>
+      </form>
+    </div>
+
+    <div class="text-box">
+      <h1 class="header-primary">
+        <span class="header-primary-main">Airocity</span>
+        <span class="header-primary-sub">Go green - There is no planet B.<br>The Earth is what we all have in common</span>
+      </h1>
+
+      <a href="#calcu" class="btn btn-white">Let's Calculate</a>
+    </div>
+  </header>
+  <section id="result">
+    <div class="form-calculate">
+      <span id="calcu" class="form-heading">Concentration to AQI calculator</span>
+      <span class="form-heading-sub">Please select a pollutant, then enter the Concentration value</span>
+    </div>
+    <div class="calculator-aqi">
+      {{! -------------- This is the AQI calculator -------------------}}
+      <form action="/auth/home#ResultDisplay"method="post">
+        <h3>Select a polutant</h3>
+        <select name="pollutant" style='font-family: "Raleway"'>
+          <option id="pm2" name="pm2" value="pm2">PM 2.5</option>
+          <option name="pm10" value="pm10">PM 10</option>
+          <option name="ozone" value="ozone">Ozone</option>
+        </select>
+        <h3>Unit</h3>
+        <input class="unit" type="text" name="unit" value="ug/m3"/>
+        <h3>Enter the concentration value</h3>
+        <input required id="concentration" class="concentration" type="number" min="0" step="any" name="concentration"/>
+        <div class="btn-block">
+          <button class="btn-calc" type="submit" href="#">Calculate</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="result">
+    <span class="result-heading">Result</span>
+    <h1 class="error-aqi">{{aqiError}}</h1>
+    <div id="ResultDisplay"class="row {{#if aqiBg}}{{aqiBg}}{{else}}row-default{{/if}}">
+      <ul>
+        <li class="title-result"><h3>AQI Calculated</h3></li>
+        <li class="title-result-sub">{{aqiAns}}</li>
+      </ul>
+      <ul>
+        <li class="title-result"><h3>AQI Catgory</h3></li>
+        <li class="title-result-sub">{{aqiCat}}</li>
+      </ul>
+      <ul>
+        <li class="title-result"><h3>Sensitive Groups</h3></li>
+        <li class="title-result-sub">{{aqiGroup}}</li>
+      </ul>
+      <ul>
+        <li class="title-result"><h3>Health Statement</h3></li>
+        <li class="title-result-sub">{{aqiEffects}}</li>
+      </ul> 
+    </div>
+  </section>
+  <script> 
+ 
+    </script> 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+</body>
+</html>
