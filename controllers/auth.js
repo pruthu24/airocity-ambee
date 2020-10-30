@@ -356,7 +356,7 @@ exports.register = (req,res)=>{
     //SQL query to look into the database (i.e -> Postional parameter to avoid SQL Injection) 
     db.query('SELECT email FROM users WHERE email = ?',[email],async(error,result)=>{
          if(error){
-             console.log(error);
+             res.status(404).render('404.hbs');
          }
          if(result.length > 0){
              return res.render('registration',{
