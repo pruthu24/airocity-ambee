@@ -39,6 +39,9 @@ db.connect((error)=>{
 
 app.use('/',require('./routes/pages'));
 app.use('/auth',require('./routes/auth'));
+app.use(function(req,res){
+    res.status(404).render('404.hbs');
+});
 
 app.listen(8081,()=>{
     console.log("server started")
