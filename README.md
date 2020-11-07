@@ -1,6 +1,6 @@
 # Airocity - Air Quality Index Calculator
 
-### A Porject by Ambee
+### A Project by Ambee
 
 The Airocity Project used to calculate the AQI - Air Quality Index. Which is helpful to fight against air pollution.
 
